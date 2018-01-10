@@ -620,11 +620,19 @@ Nous simulons 5 000 échantillons de taille 5 à partir d'une population de tail
 
 ---
 
+Nous simulons 5 000 échantillons de taille 20 à partir d'une population de taille 500. Nous calculons pour chacun de ces échantillons nos quatre estimés.
+
+--
+
+&lt;img src="SerialNumber_files/figure-html/unnamed-chunk-5-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
 Nous simulons des populations de tailles 10 à 1 000. Pour chacune d'entre elles, nous choisissons 50 échantillons de taille 5 et nous calculons les quatre estimations.
 
 --
 
-&lt;img src="SerialNumber_files/figure-html/unnamed-chunk-5-1.svg" style="display: block; margin: auto;" /&gt;
+&lt;img src="SerialNumber_files/figure-html/unnamed-chunk-6-1.svg" style="display: block; margin: auto;" /&gt;
 
 ---
 layout: false
@@ -658,7 +666,7 @@ Par exemple, si nous avons une population où les numéros de séries débutent 
 
 
 ```
-## [1] 953 586 763 975 880
+## [1] 761 540 884 579 658
 ```
 
 Pour estimer la valeur de `\(N\)`, nous soustrayons `\(499\)` à notre échantillon et nous utilisons notre estimé `\(\hat{N_4}\)`. Nous avons donc:
@@ -669,7 +677,7 @@ ech-499
 ```
 
 ```
-## [1] 454  87 264 476 381
+## [1] 262  41 385  80 159
 ```
 
 ```r
@@ -677,7 +685,7 @@ N4(ech-499)
 ```
 
 ```
-## [1] 570
+## [1] 461
 ```
 
 
@@ -715,17 +723,17 @@ ech
 ```
 
 ```
-##  [1]  668  744  895 1045  910  820  917  720  672  928
+##  [1] 751 801 813 832 700 925 992 793 795 747
 ```
 
 --
 
-En utilisant le cinquième estimé, nous obtenons `\(\hat{N_5}=\)` 461. La véritable réponse est 403.
+En utilisant le cinquième estimé, nous obtenons `\(\hat{N_5}=\)` 357. La véritable réponse est 403.
 
 ---
 layout: false
 
-## La genèse
+## Pour davantage d'informations
 
 Tout débute avec un article de **Richard Ruggles et Henry Brodie** paru dans le volume 42 du *Journal of the American Statistical Association* en 1947. L'article s'intitule:
 

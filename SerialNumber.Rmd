@@ -38,6 +38,7 @@ library(reshape2)
 theme_set(theme_minimal())
 set.seed(39894095)
 
+# Définition des fonctions pour le calcul des mesures sur les numéros de série.
 
 N1 <- function(ech){
   return(round(2*median(ech)-1))
@@ -646,6 +647,48 @@ ggplot(data = N.guess, mapping = aes(x = V1)) +
 
 ---
 
+Nous simulons 5 000 échantillons de taille 20 à partir d'une population de taille 500. Nous calculons pour chacun de ces échantillons nos quatre estimés.
+
+--
+
+```{r, echo = FALSE, fig.align='center'}
+N <- 500
+n <- 20
+iter <- 5000
+pop <- c(1:N)
+
+N1.guess <- data.frame(NULL)
+N2.guess <- data.frame(NULL)
+N3.guess <- data.frame(NULL)
+N4.guess <- data.frame(NULL)
+N.guess <- data.frame(NULL)
+
+for (i in 1 : iter){
+  ech <- sample(pop, n, replace = FALSE)
+  N1.guess[i,1] = N1(ech)
+  N1.guess[i,2] = "N1"
+  N2.guess[i,1] = N2(ech)
+  N2.guess[i,2] = "N2"
+  N3.guess[i,1] = N3(ech)
+  N3.guess[i,2] = "N3"
+  N4.guess[i,1] = N4(ech)
+  N4.guess[i,2] = "N4"
+}
+
+N.guess = rbind(N1.guess,N2.guess,N3.guess,N4.guess)
+
+ggplot(data = N.guess, mapping = aes(x = V1)) +
+  geom_histogram(binwidth = 50, color="darkblue", fill="lightblue") +
+  labs(
+    x = "Estimations",
+    y = "Fréquence"
+  ) +
+  geom_vline(xintercept=N,linetype=2,color="black") +
+  facet_grid(V2 ~ .)
+```
+
+---
+
 Nous simulons des populations de tailles 10 à 1 000. Pour chacune d'entre elles, nous choisissons 50 échantillons de taille 5 et nous calculons les quatre estimations.
 
 --
@@ -779,7 +822,7 @@ En utilisant le cinquième estimé, nous obtenons $\hat{N_5}=$ `r N5(ech)`. La v
 ---
 layout: false
 
-## La genèse
+## Pour davantage d'informations
 
 Tout débute avec un article de **Richard Ruggles et Henry Brodie** paru dans le volume 42 du *Journal of the American Statistical Association* en 1947. L'article s'intitule:
 
