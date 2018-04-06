@@ -30,6 +30,7 @@ class: center, middle
 ---
 
 ```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache = TRUE)
 options(htmltools.dir.version = FALSE)
 library(mosaic)
 library(ggplot2)
