@@ -1,0 +1,34 @@
+---
+geometry: 
+  margin=0cm,
+  paperheight=4cm,
+  paperwidth=4cm
+output:
+  pdf_document:
+    includes:
+      in_header: mystyles.sty
+    keep_tex: no
+    latex_engine: xelatex
+---
+
+```{r setup, include=FALSE}
+# Nous allons produire un document pdf sur lequel nous allons afficher une liste de numéros pour faire piger les auditeurs lors de la présentation.
+# Je vais faire piger une dizaine de personnes et nous allons essayer de deviner la plus grande valeur de l'échantillon.
+s <- 0 # Numéro de départ
+N <- 500 # Numéro de fin (peut-être choisir au hasard?)
+knitr::opts_chunk$set(echo = FALSE, results = 'asis')
+```
+
+```{r}
+for (i in (s+1:N)){
+  cat("\\begin{center}\n")
+  cat("\\psset{unit=1cm}\n")
+  cat("\\begin{pspicture}(-2,-2)(2,2)\n")
+  cat("\\psframe[linewidth=5pt,framearc=.3](-2,-2)(2,2)\n")
+  cat(paste0(c("\\rput(0,0){{\\fontsize{70}{70}\\selectfont",i,"}}\n"),collapse = ""))
+  cat("\\end{pspicture}\n")
+  cat("\\end{center}\n")
+  cat("\\clearpage\n")
+}
+```
+
