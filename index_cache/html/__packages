@@ -6,7 +6,7 @@ ggformula
 mosaicData
 Matrix
 mosaic
-reshape2
 purrr
 tidyr
+reshape2
 bindrcpp
