@@ -1,5 +1,5 @@
 ---
-subtitle: "ou comment j'ai appris à ne plus m'en faire et à aimer ~~la bombe~~ les numéros de série"
+title: "ou comment j'ai appris à ne plus m'en faire et à aimer ~~la bombe~~ les numéros de série"
 author: "Marc-André Désautels"
 date: "Octobre 2018"
 output:
