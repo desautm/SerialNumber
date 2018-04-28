@@ -7,3 +7,6 @@ mosaicData
 Matrix
 mosaic
 reshape2
+purrr
+tidyr
+bindrcpp
