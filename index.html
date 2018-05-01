@@ -4,8 +4,7 @@
     <title>Combien de chars d’assaut, de Tesla et de iPhones?</title>
     <meta charset="utf-8">
     <meta name="author" content="Marc-André Désautels" />
-    <link href="libs/remark-css/default.css" rel="stylesheet" />
-    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+    <link href="libs/remark-css/example.css" rel="stylesheet" />
   </head>
   <body>
     <textarea id="source">
@@ -601,17 +600,13 @@ Nous simulons 5 000 échantillons de taille 5 à partir d'une population de tail
 
 ---
 
-Nous simulons 5 000 échantillons de taille 20 à partir d'une population de taille 500. Nous calculons pour chacun de ces échantillons nos quatre estimés.
-
-
-
---
+Nous simulons 5 000 échantillons de taille 5 à partir d'une population de taille 500. Nous calculons pour chacun de ces échantillons nos quatre estimés.
 
 &lt;img src="index_files/figure-html/unnamed-chunk-5-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
-Nous simulons 5 000 échantillons de taille 50 à partir d'une population de taille 500. Nous calculons pour chacun de ces échantillons nos quatre estimés.
+Nous simulons 5 000 échantillons de taille 20 à partir d'une population de taille 500. Nous calculons pour chacun de ces échantillons nos quatre estimés.
 
 
 
@@ -621,11 +616,26 @@ Nous simulons 5 000 échantillons de taille 50 à partir d'une population de tai
 
 ---
 
-Nous simulons des populations de tailles 10 à 1 000. Pour chacune d'entre elles, nous choisissons 50 échantillons de taille 5 et nous calculons les quatre estimations.
+Nous simulons 5 000 échantillons de taille 50 à partir d'une population de taille 500. Nous calculons pour chacun de ces échantillons nos quatre estimés.
+
+
 
 --
 
-&lt;img src="index_files/figure-html/unnamed-chunk-7-1.svg" style="display: block; margin: auto;" /&gt;
+&lt;img src="index_files/figure-html/unnamed-chunk-7-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+Nous simulons des populations de tailles 10 à 1 000. Pour chacune d'entre elles, nous choisissons 50 échantillons de taille 5 et nous calculons les quatre estimations.
+
+
+
+&lt;img src="index_files/figure-html/unnamed-chunk-9-1.png" style="display: block; margin: auto;" /&gt;
+
+
+--
+
+&lt;img src="index_files/figure-html/unnamed-chunk-10-1.svg" style="display: block; margin: auto;" /&gt;
 
 ---
 layout: false
@@ -659,7 +669,7 @@ Par exemple, si nous avons une population où les numéros de séries débutent 
 
 
 ```
-## [1] 532 782 780 763 607
+## [1] 501 828 948 864 908
 ```
 
 Pour estimer la valeur de `\(N\)`, nous soustrayons `\(499\)` à notre échantillon et nous utilisons notre estimé `\(\hat{N_4}\)`. Nous avons donc:
@@ -670,7 +680,7 @@ ech-499
 ```
 
 ```
-## [1]  33 283 281 264 108
+## [1]   2 329 449 365 409
 ```
 
 ```r
@@ -678,7 +688,7 @@ N4(ech-499)
 ```
 
 ```
-## [1] 339
+## [1] 538
 ```
 
 
@@ -716,12 +726,12 @@ ech
 ```
 
 ```
-##  [1] 1034  661  904  921  893  720 1039  895  709  764
+##  [1] 712 835 828 672 856 957 901 905 938 661
 ```
 
 --
 
-En utilisant le cinquième estimé, nous obtenons `\(\hat{N_5}=\)` 462. La véritable réponse est 403.
+En utilisant le cinquième estimé, nous obtenons `\(\hat{N_5}=\)` 362. La véritable réponse est 403.
 
 ---
 layout: false
@@ -796,15 +806,8 @@ Slim Pickens dans le rôle du  Major "King" Kong chevauchant une bombe nucléair
 "highlightLines": true,
 "countIncrementalSlides": false
 });
-if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
-  window.dispatchEvent(new Event('resize'));
-});
-(function() {
-  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
-  if (!r) return;
-  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
-  d.head.appendChild(s);
-})();</script>
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {window.dispatchEvent(new Event('resize'));});
+(function() {var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler"); if (!r) return; s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }"; d.head.appendChild(s);})();</script>
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({

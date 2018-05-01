@@ -617,6 +617,15 @@ ggplot(data = ech5, mapping = aes(x = valeur))+
 
 ---
 
+Nous simulons 5 000 échantillons de taille 5 à partir d'une population de taille 500. Nous calculons pour chacun de ces échantillons nos quatre estimés.
+
+```{r, echo = FALSE, fig.align='center'}
+ggplot(data = ech5, mapping = aes(x = estimateur, y = valeur, fill = estimateur))+
+  geom_violin()
+```
+
+---
+
 Nous simulons 5 000 échantillons de taille 20 à partir d'une population de taille 500. Nous calculons pour chacun de ces échantillons nos quatre estimés.
 
 ```{r ech-taille-20, echo = FALSE}
@@ -682,6 +691,32 @@ ggplot(data = ech50, mapping = aes(x = valeur))+
 ---
 
 Nous simulons des populations de tailles 10 à 1 000. Pour chacune d'entre elles, nous choisissons 50 échantillons de taille 5 et nous calculons les quatre estimations.
+
+```{r, echo=FALSE}
+test <- tibble(
+  pop = rep(seq(10, 1000, 10), 50),
+  id = map(pop, ~sample(.x, 5, replace = FALSE))
+  )
+test <- test %>%
+  mutate(N1 = map_dbl(id, N1)) %>%
+  mutate(N2 = map_dbl(id, N2)) %>%
+  mutate(N3 = map_dbl(id, N3)) %>%
+  mutate(N4 = map_dbl(id, N4)) %>%
+  gather(estimateur, valeur, N1, N2, N3, N4) %>%
+  select(-id)
+```
+
+```{r, echo = FALSE, fig.align='center'}
+ggplot(data = test, aes(x = pop, y = valeur, color = estimateur))+
+  geom_jitter(alpha=0.5)+
+  labs(
+    x = "Nombre de chars produits",
+    y = "Estimation"
+  )+
+  geom_abline(intercept = 0, slope=1, color = "red") +
+  scale_colour_discrete(name="Modèle")
+```
+
 
 --
 
