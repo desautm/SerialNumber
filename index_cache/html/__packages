@@ -9,7 +9,6 @@ mosaic
 purrr
 tidyr
 reshape2
-bindrcpp
 tidyverse
 tibble
 readr
@@ -20,3 +19,4 @@ googlesheets
 rtweet
 plotly
 scales
+bindrcpp
