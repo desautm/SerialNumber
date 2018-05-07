@@ -10,3 +10,13 @@ purrr
 tidyr
 reshape2
 bindrcpp
+tidyverse
+tibble
+readr
+stringr
+forcats
+lubridate
+googlesheets
+rtweet
+plotly
+scales

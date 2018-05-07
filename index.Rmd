@@ -1,5 +1,5 @@
 ---
-title: "Combien de chars d'assaut, de Tesla et de iPhones?"
+title: "Le problème du char d'assaut allemand"
 subtitle: "ou comment j'ai appris à ne plus m'en faire et à aimer ~~la bombe~~ les numéros de série"
 author: "Marc-André Désautels"
 date: "Octobre 2018"
@@ -35,8 +35,14 @@ options(htmltools.dir.version = FALSE)
 library(mosaic)
 library(purrr)
 library(tidyr)
-library(ggplot2)
 library(reshape2)
+library(tidyverse)
+library(lubridate)
+library(googlesheets)
+library(stringr)
+library(rtweet)
+library(plotly)
+library(scales)
 theme_set(theme_minimal())
 set.seed(39894095)
 
@@ -901,6 +907,61 @@ Dans un article daté du 8 octobre 2008: [Why iPhones are just like German tanks
 
 ---
 
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+tesla <- gs_key("188iQarE-7M49xKcTaCxEkQVd1A1FH5bFgJ5d9sQfJck")
+
+data <- tesla %>%
+  gs_read(ws = "All Entries")
+alldata <- data[3:nrow(data),]
+colnames(alldata) <- data[2,]
+proddata <- tesla %>%
+  gs_read(ws = "Production")
+
+date <- c("Reservation date",
+          "Invite date or access date to the Configurator",
+          "Configuration date",
+          "VIN assignment date",
+          "Scheduled delivery date",
+          "Last update",
+          "Calculated delivery date")
+time <- c("Reservation time")
+int <- c("VIN (clean version x=5)")
+cleanalldata <- alldata %>%
+  mutate_at(date, funs(dmy)) %>%
+  mutate_at(time, funs(hm)) %>%
+  mutate_at(int, funs(as.integer))
+cleanproddata <- proddata %>%
+  mutate_at("Date", funs(dmy)) %>%
+  mutate_at("Total units", funs(as.integer))
+
+INVITES <- cleanalldata %>%
+  filter(!is.na(`VIN (clean version x=5)`) & !is.na(`VIN assignment date`)) %>%
+  rename(vin_invites = `VIN (clean version x=5)`, date = `VIN assignment date`) %>%
+  arrange(date)
+n4 <- vector(mode = "double", length = nrow(INVITES))
+n5 <- vector(mode = "double", length = nrow(INVITES))
+for (i in seq(length(n4))){
+  n4[i] <- N4(INVITES$vin_invites[1:i])
+  n5[i] <- N5(INVITES$vin_invites[1:i])
+}
+INVITES <- as.tibble(cbind(INVITES, tibble(N4 = n4, N5 = n5)))
+
+PRODUCTION <- cleanproddata %>%
+  filter(!is.na(`Date`) & !is.na(`Total units`)) %>%
+  rename(date = `Date`, total_unites = `Total units`) %>%
+  arrange(date)
+
+Model3VINs <- get_timeline("Model3VINs", n = 3200)
+Model3VINs$text <- str_to_lower(Model3VINs$text)
+
+NHSTA <- Model3VINs %>%
+  filter(str_detect(text, "highest vin is (\\d+)") == TRUE) %>%
+  mutate(vin_nhsta = as.integer(str_match(text, "highest vin is (\\d+)")[,2])) %>%
+  mutate(date = as_date(created_at)) %>%
+  select(date, vin_nhsta) %>%
+  arrange(date)
+```
+
 # Et des Tesla...
 
 ### Tesla Model 3 Tracker
@@ -908,6 +969,72 @@ Dans un article daté du 8 octobre 2008: [Why iPhones are just like German tanks
 La compagnie Bloomberg héberge un modèle pour estimer la production du modèle 3 de Tesla: [Tesla Model 3 Tracker](https://www.bloomberg.com/graphics/2018-tesla-tracker/#).
 
 * La compagnie utilise, entre autre, le numéro de série VIN du modèle 3 de Tesla.
+
+---
+
+```{r echo=FALSE, fig.align='center', fig.height=8, fig.width=8, warning = FALSE}
+g <- ggplot()+
+  geom_point(data = INVITES, mapping = aes(x = date, y = vin_invites), 
+             alpha = 0.5, 
+             size = 2,
+             color = "blue")+
+  #geom_line(data = INVITES, mapping = aes(x = date, y = N4), color = "green")+
+  #geom_line(data = INVITES, mapping = aes(x = date, y = N5), color = "yellow")+
+  geom_point(data = PRODUCTION, mapping = aes(x = date, y = total_unites), color = "green", alpha = 0)+
+  geom_line(data = PRODUCTION, mapping = aes(x = date, y = total_unites), color = "green", alpha = 0)+
+  geom_step(data = NHSTA, mapping = aes(x = date, y = vin_nhsta), color = "white", size = 1)+
+  labs(
+    x = "Date d'assignation du numéro VIN",
+    y = "Numéro VIN"
+  )+
+  scale_x_date(breaks = date_breaks("1 month"), limits = c(as.Date("2017-11-01"),NA))
+#ggplotly(g)
+g
+```
+
+---
+
+```{r echo=FALSE, fig.align='center', fig.height=8, fig.width=8, , warning = FALSE}
+g <- ggplot()+
+  geom_point(data = INVITES, mapping = aes(x = date, y = vin_invites), 
+             alpha = 0.5, 
+             size = 2,
+             color = "blue")+
+  #geom_line(data = INVITES, mapping = aes(x = date, y = N4), color = "green")+
+  #geom_line(data = INVITES, mapping = aes(x = date, y = N5), color = "yellow")+
+  geom_point(data = PRODUCTION, mapping = aes(x = date, y = total_unites), color = "green", alpha = 0)+
+  geom_line(data = PRODUCTION, mapping = aes(x = date, y = total_unites), color = "green", alpha = 0)+
+  geom_step(data = NHSTA, mapping = aes(x = date, y = vin_nhsta), color = "red", size = 1)+
+  labs(
+    x = "Date d'assignation du numéro VIN",
+    y = "Numéro VIN"
+  )+
+  scale_x_date(breaks = date_breaks("1 month"), limits = c(as.Date("2017-11-01"),NA))
+#ggplotly(g)
+g
+```
+
+---
+
+```{r echo=FALSE, fig.align='center', fig.height=8, fig.width=8, , warning = FALSE}
+g <- ggplot()+
+  geom_point(data = INVITES, mapping = aes(x = date, y = vin_invites), 
+             alpha = 0.5, 
+             size = 2,
+             color = "blue")+
+  #geom_line(data = INVITES, mapping = aes(x = date, y = N4), color = "green")+
+  #geom_line(data = INVITES, mapping = aes(x = date, y = N5), color = "yellow")+
+  geom_line(data = PRODUCTION, mapping = aes(x = date, y = total_unites), color = "green", , size = 2)+
+  geom_point(data = PRODUCTION, mapping = aes(x = date, y = total_unites), color = "black", size = 3)+
+  geom_step(data = NHSTA, mapping = aes(x = date, y = vin_nhsta), color = "red", size = 1)+
+  labs(
+    x = "Date d'assignation du numéro VIN",
+    y = "Numéro VIN"
+  )+
+  scale_x_date(breaks = date_breaks("1 month"), limits = c(as.Date("2017-11-01"),NA))
+#ggplotly(g)
+g
+```
 
 ---
 class: middle, center, inverse
