@@ -57,17 +57,25 @@ N2 <- function(ech){
 }
 
 N3 <- function(ech){
-  return(round(max(ech)+min(ech)-1))
+  if (length(ech) == 1) return(ech)
+  else return(round(max(ech)+min(ech)-1))
 }
 
 N4 <- function(ech){
-  return(round((length(ech)+1)/length(ech)*max(ech)-1))
+  if (length(ech) == 1) return(ech)
+  else{
+    l <- length(unique(ech))
+  return(round((l+1)/l*max(ech)-1))
+  }
 }
 
 N5 <- function(ech){
-  return(round((max(ech)-min(ech))*(length(ech)+1)/(length(ech)-1)))
+  if (length(ech) == 1) return(ech)
+  else{
+    l <- length(unique(ech))
+    return(round((max(ech)-min(ech))*(l+1)/(l-1)))
+  }
 }
-
 ```
 
 background-image: url(https://upload.wikimedia.org/wikipedia/commons/f/f6/Dr._Strangelove_poster.png)
@@ -980,8 +988,12 @@ g <- ggplot()+
              color = "blue")+
   #geom_line(data = INVITES, mapping = aes(x = date, y = N4), color = "green")+
   #geom_line(data = INVITES, mapping = aes(x = date, y = N5), color = "yellow")+
-  geom_point(data = PRODUCTION, mapping = aes(x = date, y = total_unites), color = "green", alpha = 0)+
-  geom_line(data = PRODUCTION, mapping = aes(x = date, y = total_unites), color = "green", alpha = 0)+
+  geom_point(data = PRODUCTION, mapping = aes(x = date, y = total_unites), 
+             color = "green", 
+             alpha = 0)+
+  geom_line(data = PRODUCTION, mapping = aes(x = date, y = total_unites), 
+            color = "green", 
+            alpha = 0)+
   geom_step(data = NHSTA, mapping = aes(x = date, y = vin_nhsta), color = "white", size = 1)+
   labs(
     x = "Date d'assignation du numéro VIN",
@@ -1002,8 +1014,12 @@ g <- ggplot()+
              color = "blue")+
   #geom_line(data = INVITES, mapping = aes(x = date, y = N4), color = "green")+
   #geom_line(data = INVITES, mapping = aes(x = date, y = N5), color = "yellow")+
-  geom_point(data = PRODUCTION, mapping = aes(x = date, y = total_unites), color = "green", alpha = 0)+
-  geom_line(data = PRODUCTION, mapping = aes(x = date, y = total_unites), color = "green", alpha = 0)+
+  geom_point(data = PRODUCTION, mapping = aes(x = date, y = total_unites), 
+             color = "green", 
+             alpha = 0)+
+  geom_line(data = PRODUCTION, mapping = aes(x = date, y = total_unites), 
+            color = "green", 
+            alpha = 0)+
   geom_step(data = NHSTA, mapping = aes(x = date, y = vin_nhsta), color = "red", size = 1)+
   labs(
     x = "Date d'assignation du numéro VIN",
@@ -1024,8 +1040,68 @@ g <- ggplot()+
              color = "blue")+
   #geom_line(data = INVITES, mapping = aes(x = date, y = N4), color = "green")+
   #geom_line(data = INVITES, mapping = aes(x = date, y = N5), color = "yellow")+
-  geom_line(data = PRODUCTION, mapping = aes(x = date, y = total_unites), color = "green", , size = 2)+
-  geom_point(data = PRODUCTION, mapping = aes(x = date, y = total_unites), color = "black", size = 3)+
+  geom_line(data = PRODUCTION, mapping = aes(x = date, y = total_unites), 
+            color = "green", 
+            size = 2)+
+  geom_point(data = PRODUCTION, mapping = aes(x = date, y = total_unites), 
+             color = "black", 
+             size = 3)+
+  geom_step(data = NHSTA, mapping = aes(x = date, y = vin_nhsta), color = "red", size = 1)+
+  labs(
+    x = "Date d'assignation du numéro VIN",
+    y = "Numéro VIN"
+  )+
+  scale_x_date(breaks = date_breaks("1 month"), limits = c(as.Date("2017-11-01"),NA))
+#ggplotly(g)
+g
+```
+
+---
+
+```{r echo=FALSE, fig.align='center', fig.height=8, fig.width=8, , warning = FALSE}
+g <- ggplot()+
+  geom_point(data = INVITES, mapping = aes(x = date, y = vin_invites), 
+             alpha = 0.5, 
+             size = 2,
+             color = "blue")+
+  geom_line(data = INVITES, mapping = aes(x = date, y = N4), 
+            color = "yellow",
+            size = 2)+
+  #geom_line(data = INVITES, mapping = aes(x = date, y = N5), color = "yellow")+
+  geom_line(data = PRODUCTION, mapping = aes(x = date, y = total_unites), 
+            color = "green", 
+            size = 2)+
+  geom_point(data = PRODUCTION, mapping = aes(x = date, y = total_unites), 
+             color = "black", 
+             size = 3)+
+  geom_step(data = NHSTA, mapping = aes(x = date, y = vin_nhsta), color = "red", size = 1)+
+  labs(
+    x = "Date d'assignation du numéro VIN",
+    y = "Numéro VIN"
+  )+
+  scale_x_date(breaks = date_breaks("1 month"), limits = c(as.Date("2017-11-01"),NA))
+#ggplotly(g)
+g
+```
+
+---
+
+```{r echo=FALSE, fig.align='center', fig.height=8, fig.width=8, , warning = FALSE}
+g <- ggplot()+
+  geom_point(data = INVITES, mapping = aes(x = date, y = vin_invites), 
+             alpha = 0.5, 
+             size = 2,
+             color = "blue")+
+  geom_line(data = INVITES, mapping = aes(x = date, y = N5), 
+            color = "yellow",
+            size = 2)+
+  #geom_line(data = INVITES, mapping = aes(x = date, y = N5), color = "yellow")+
+  geom_line(data = PRODUCTION, mapping = aes(x = date, y = total_unites), 
+            color = "green", 
+            size = 2)+
+  geom_point(data = PRODUCTION, mapping = aes(x = date, y = total_unites), 
+             color = "black", 
+             size = 3)+
   geom_step(data = NHSTA, mapping = aes(x = date, y = vin_nhsta), color = "red", size = 1)+
   labs(
     x = "Date d'assignation du numéro VIN",
