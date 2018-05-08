@@ -115,6 +115,42 @@ layout: true
 
 ---
 layout: false
+class: center, inverse, middle
+
+# L'intelligence économique
+
+---
+layout: true
+
+### L'intelligence économique durant la seconde guerre mondiale
+
+---
+
+--
+
+- L’intelligence économique est l'ensemble des activités coordonnées de collecte, de traitement et de diffusion de l'information utile aux acteurs économiques, en vue de son exploitation.
+
+--
+
+- Derrière chaque attaque en Europe se cachait des recherches exhaustives portant sur certains produits guerriers allemands indispensables;
+
+--
+
+- Durant les premières phases de la guerre, l'intelligence économique alliée se montra inadéquate pour les nombreux besoins qu'on demandait d'elle.
+
+--
+
+- Les estimés étaient basés sur des données d'avant la guerre ou alors extrapolées à partir de donnée américaines ou britanniques.
+
+--
+
+- Les données obtenues par les services secrets donnaient d'énormes masses de données contradictoires.
+
+--
+
+- **Il fallait trouver une autre façon d'obtenir de l'information!**
+
+---
 layout: true
 
 ### Début de l'année 1943
@@ -181,81 +217,6 @@ La technique que nous verrons a par contre été utilisée pour estimer bien d'a
 
 ---
 layout: false
-layout: true
-
-## L'intelligence économique durant la seconde guerre mondiale
-
----
-
---
-
-- L’intelligence économique est l'ensemble des activités coordonnées de collecte, de traitement et de diffusion de l'information utile aux acteurs économiques, en vue de son exploitation.
-
---
-
-- Derrière chaque attaque en Europe se cachait des recherches exhaustives portant sur certains produits guerriers allemands indispensables;
-
---
-
-- Durant les premières phases de la guerre, l'intelligence économique alliée se montra inadéquate pour les nombreux besoins qu'on demandait d'elle.
-
---
-
-- Les estimés étaient basés sur des données d'avant la guerre ou alors extrapolées à partir de donnée américaines ou britanniques.
-
---
-
-- Les données obtenues par les services secrets donnaient d'énormes masses de données contradictoires.
-
---
-
-- **Il fallait trouver une autre façon d'obtenir de l'information!**
-
----
-layout: false
-layout: true
-
-# Les numéros de séries
-
----
-
-### L'information présente
-
-Chaque pièce d'équipement allemande, que ce soit un objet complet ou les parties le composant était marqués de symboles inscrits sur l'équipement ou sur des plaques attachées.
-
-Ces marquages variaient au niveau de leur complétude et étaient composés, en partie ou en totalité, de l'information suivante:
-
---
-
-1. Le nom et la localisation du constructeur.
-
---
-
-2. La date de manufacture.
-
---
-
-3. Le numéro de série de production.
-
---
-
-4. Autres informations, par exemple marques de commerce, numéros de moules, etc.
-
----
-
-### Le but de ces informations
-
-Les marquages présents servaient deux utilités:
-
---
-
-1. Premièrement, ils fournissaient l'information nécessaire pour maintenir un certain standard de production. Un malfonctionnement de l'équipement dû à un défaut de fabrication pouvait être retracé à sa source et corrigé.
-
---
-
-2. Deuxièmement, certains de ces marquages étaient essentiels pour le contrôle des pièces de rechange. 
-
----
 
 ### Les objets étudiés
 
@@ -265,31 +226,17 @@ La **Economic Warfare Division** et le **British Ministry of Economic Warfare** 
 
 - Les pneus (de camions et d'avions)
 
---
-
 - **Les chars d'assaut**
-
---
 
 - Camions et automobiles
 
---
-
 - Armes à feu
-
---
 
 - Munitions
 
---
-
 - Composantes spéciales
 
---
-
 - Bombes
-
---
 
 - Fusées
 
@@ -626,13 +573,25 @@ Nous simulons 5 000 échantillons de taille 20 à partir d'une population de tai
 
 ---
 
+Nous simulons 5 000 échantillons de taille 20 à partir d'une population de taille 500. Nous calculons pour chacun de ces échantillons nos quatre estimés.
+
+&lt;img src="index_files/figure-html/unnamed-chunk-7-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
 Nous simulons 5 000 échantillons de taille 50 à partir d'une population de taille 500. Nous calculons pour chacun de ces échantillons nos quatre estimés.
 
 
 
 --
 
-&lt;img src="index_files/figure-html/unnamed-chunk-7-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="index_files/figure-html/unnamed-chunk-8-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+Nous simulons 5 000 échantillons de taille 50 à partir d'une population de taille 500. Nous calculons pour chacun de ces échantillons nos quatre estimés.
+
+&lt;img src="index_files/figure-html/unnamed-chunk-9-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -642,7 +601,7 @@ Nous simulons des populations de tailles 10 à 1 000. Pour chacune d'entre elles
 
 
 
-&lt;img src="index_files/figure-html/unnamed-chunk-9-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="index_files/figure-html/unnamed-chunk-11-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 layout: false
@@ -656,6 +615,13 @@ Voici les estimés de la production pour trois mois tels que présentés dans l'
 | Juin 1940 | 169 | 1 000 | 122 |
 | Juin 1941 | 244 | 1 550 | 271 |
 | Août 1942 | 327 | 1 550 | 342 |
+
+---
+class: middle, center, inverse
+
+# Nos données...
+
+TODO: ON FAIT LE CALCUL AVEC LES NOMBRES PIGÉS...
 
 ---
 class: middle, center, inverse
@@ -698,6 +664,9 @@ N4(ech-499)
 ## [1] 545
 ```
 
+--
+
+La population est en fait de taille 500.
 
 ---
 layout: false
@@ -738,31 +707,7 @@ ech
 
 --
 
-En utilisant le cinquième estimé, nous obtenons `\(\hat{N_5}=\)` 369. La véritable réponse est 403.
-
----
-layout: false
-
-## Pour davantage d'informations
-
-Tout débute avec un article de **Richard Ruggles et Henry Brodie** paru dans le volume 42 du *Journal of the American Statistical Association* en 1947. L'article s'intitule:
-
-.center[**An Empirical Approach to Economic Intelligence in World War II**]
-
---
-
-**_Pas le titre le plus accrocheur en ville..._**
-
---
-
-Par contre, la lecture de l'article est passionnante. Les mathématiques sont pratiquement absentes de celui-ci mais les auteurs nous entraînent dans l'histoire du développement de leur technique en fonction des problèmes rencontrés et des solutions qui ont été trouvées.
-
---
-
-Pour celles et ceux intéressés, vous pouvez trouver cet article aux endroits suivants:
-
-- [doi](https://en.wikipedia.org/wiki/Digital_object_identifier): [10.1080/01621459.1947.10501915](https://doi.org/10.1080%2F01621459.1947.10501915)
-- [JSTOR](https://en.wikipedia.org/wiki/JSTOR): [2280189](https://www.jstor.org/stable/2280189)
+En utilisant le cinquième estimé, nous obtenons `\(\hat{N_5}=\)` 368. La véritable réponse est 403.
 
 ---
 class: inverse, center, middle
@@ -771,59 +716,6 @@ class: inverse, center, middle
 
 ---
 
-## Combien de Commodore 64 ont vraiment été vendus?
-
-Le Commodore 64 est un ordinateur personnel conçu par Commodore Business Machines Inc, pour l'entreprise Regular Blue Fish en 1982, sous l'égide de Jack Tramiel. Il fut la première machine vendue à plusieurs millions d'exemplaires (de 17 à 25 millions selon les estimations), et il reste le modèle d'ordinateur personnel le plus vendu à ce jour, selon le Livre Guinness des records.
-
-&lt;img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Commodore64.jpg" width="700"&gt; 
-
-???
-
-By Bill Bertram (Self-published work by Bill Bertram) [CC BY-SA 2.5 (https://creativecommons.org/licenses/by-sa/2.5)], via Wikimedia Commons
-
----
-
-Plusieurs personnes mettent en doute les chiffres de 17 à 25 millions. Nous allons tenter d'utiliser les techniques vues aujourd'hui pour obtenir un estimé du nombre de Commodore 64 vendus.
-
---
-
-Basé sur [How many Commodore 64 computers were really sold?](https://www.pagetable.com/?p=547)
-
-Pour ce faire, nous allons utiliser la base de données du site [C64 Preservation](https://c64preservation.com/dp.php?pg=registry). Ce site héberge une base de données contenant les numéros de séries de certains Commodore 64.
-
---
-
-<div id="htmlwidget-bfeb8d4dd560b183eef9" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-bfeb8d4dd560b183eef9">{"x":{"filter":"none","fillContainer":false,"data":[[1982,1982,1982,1982,1982,1983,1983,1983,1984,1984,1984,1986,1987,1988,1989,1990],["326298","326298/A","326298/B","326298/C","KU-14194HB","250407/A","250407/B","250407/C","250425/-","250425/A","250425/B","250466","250469/3","250469/4","250469/A","250469/B"],[4,21,6,6,16,7,50,18,48,9,4,18,14,29,16,17],[null,325512,null,null,null,208282,1152644,1218502,1273699,500165,536345,438001,444384,1124586,1994012,2242493]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>année<\/th>\n      <th>série<\/th>\n      <th>n<\/th>\n      <th>maximum<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"columnDefs":[{"className":"dt-right","targets":[0,2,3]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
-
----
-
-Nous allons débuter par calculer une estimation du nombre maximal de Commodore 64 produits pour les lignes où nous avons un maximum. Nous utilisons l'estimateur `\(\hat{N}_4\)`.
-
-`$$\hat{N}_4=\left( \frac{n+1}{n}\right) X_{(n)}-1$$`
-
---
-
-<div id="htmlwidget-d271d7783d25238914bc" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d271d7783d25238914bc">{"x":{"filter":"none","data":[[1982,1982,1982,1982,1982,1983,1983,1983,1984,1984,1984,1986,1987,1988,1989,1990],["326298","326298/A","326298/B","326298/C","KU-14194HB","250407/A","250407/B","250407/C","250425/-","250425/A","250425/B","250466","250469/3","250469/4","250469/A","250469/B"],[4,21,6,6,16,7,50,18,48,9,4,18,14,29,16,17],[null,325512,null,null,null,208282,1152644,1218502,1273699,500165,536345,438001,444384,1124586,1994012,2242493],[null,341012,null,null,null,238036,1175696,1286196,1300233,555738,670430,462333,476125,1163364,2118637,2374403]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>année<\/th>\n      <th>série<\/th>\n      <th>n<\/th>\n      <th>maximum<\/th>\n      <th>total<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"columnDefs":[{"className":"dt-right","targets":[0,2,3,4]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
-
----
-
-# Des iPhones...
-
-### Pourquoi les iPhones sont comme les chars allemands
-
-Dans un article daté du 8 octobre 2008: [Why iPhones are just like German tanks](https://www.theguardian.com/technology/blog/2008/oct/08/iphone.apple).
-
-* Le 11 juillet 2008, un utilisateur de produits Apple a demandé aux propriétaires leur numéro de série IMEI. 
-* Le IMEI (*The International Mobile Equipment Identity*) est un code unqiue de 15 chiffres assigné à tous les téléphones cellulaires
-* Après deux mois, les résultats ont été publiés sur internet et en utilisant les techniques vue précédemment, l'utilisateur a calculé combien de iPhones ont été construits cette année-là.
-
---
-
-#.center[9 190 680]
-
----
 class: inverse, center, middle
 
 # Tesla
@@ -885,6 +777,87 @@ Les VINs des usagers, la NHSTA, la production exacte de Tesla et `\(N_4\)`.
 Les VINs des usagers, la NHSTA, la production exacte de Tesla et `\(N_5\)`.
 
 &lt;img src="index_files/figure-html/unnamed-chunk-21-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Combien de Commodore 64 ont vraiment été vendus?
+
+Le Commodore 64 est un ordinateur personnel conçu par Commodore Business Machines Inc, pour l'entreprise Regular Blue Fish en 1982, sous l'égide de Jack Tramiel. Il fut la première machine vendue à plusieurs millions d'exemplaires (de 17 à 25 millions selon les estimations), et il reste le modèle d'ordinateur personnel le plus vendu à ce jour, selon le Livre Guinness des records.
+
+&lt;img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Commodore64.jpg" width="700"&gt; 
+
+???
+
+By Bill Bertram (Self-published work by Bill Bertram) [CC BY-SA 2.5 (https://creativecommons.org/licenses/by-sa/2.5)], via Wikimedia Commons
+
+---
+
+Plusieurs personnes mettent en doute les chiffres de 17 à 25 millions. Nous allons tenter d'utiliser les techniques vues aujourd'hui pour obtenir un estimé du nombre de Commodore 64 vendus.
+
+--
+
+Basé sur [How many Commodore 64 computers were really sold?](https://www.pagetable.com/?p=547)
+
+Pour ce faire, nous allons utiliser la base de données du site [C64 Preservation](https://c64preservation.com/dp.php?pg=registry). Ce site héberge une base de données contenant les numéros de séries de certains Commodore 64.
+
+--
+
+<div id="htmlwidget-a8366da332a47f23750e" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a8366da332a47f23750e">{"x":{"filter":"none","fillContainer":false,"data":[[1982,1982,1982,1982,1982,1983,1983,1983,1984,1984,1984,1986,1987,1988,1989,1990],["326298","326298/A","326298/B","326298/C","KU-14194HB","250407/A","250407/B","250407/C","250425/-","250425/A","250425/B","250466","250469/3","250469/4","250469/A","250469/B"],[4,21,6,6,16,7,50,18,48,9,4,18,14,29,16,17],[null,325512,null,null,null,208282,1152644,1218502,1273699,500165,536345,438001,444384,1124586,1994012,2242493]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>année<\/th>\n      <th>série<\/th>\n      <th>n<\/th>\n      <th>maximum<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"columnDefs":[{"className":"dt-right","targets":[0,2,3]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+
+---
+
+Nous allons débuter par calculer une estimation du nombre maximal de Commodore 64 produits pour les lignes où nous avons un maximum. Nous utilisons l'estimateur `\(\hat{N}_4\)`.
+
+`$$\hat{N}_4=\left( \frac{n+1}{n}\right) X_{(n)}-1$$`
+
+--
+
+<div id="htmlwidget-87be9ec7aba9c79ad727" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-87be9ec7aba9c79ad727">{"x":{"filter":"none","data":[[1982,1982,1982,1982,1982,1983,1983,1983,1984,1984,1984,1986,1987,1988,1989,1990],["326298","326298/A","326298/B","326298/C","KU-14194HB","250407/A","250407/B","250407/C","250425/-","250425/A","250425/B","250466","250469/3","250469/4","250469/A","250469/B"],[4,21,6,6,16,7,50,18,48,9,4,18,14,29,16,17],[null,325512,null,null,null,208282,1152644,1218502,1273699,500165,536345,438001,444384,1124586,1994012,2242493],[null,341012,null,null,null,238036,1175696,1286196,1300233,555738,670430,462333,476125,1163364,2118637,2374403]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>année<\/th>\n      <th>série<\/th>\n      <th>n<\/th>\n      <th>maximum<\/th>\n      <th>total<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"columnDefs":[{"className":"dt-right","targets":[0,2,3,4]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+
+---
+
+# Des iPhones...
+
+### Pourquoi les iPhones sont comme les chars allemands
+
+Dans un article daté du 8 octobre 2008: [Why iPhones are just like German tanks](https://www.theguardian.com/technology/blog/2008/oct/08/iphone.apple).
+
+* Le 11 juillet 2008, un utilisateur de produits Apple a demandé aux propriétaires leur numéro de série IMEI. 
+* Le IMEI (*The International Mobile Equipment Identity*) est un code unqiue de 15 chiffres assigné à tous les téléphones cellulaires
+* Après deux mois, les résultats ont été publiés sur internet et en utilisant les techniques vue précédemment, l'utilisateur a calculé combien de iPhones ont été construits cette année-là.
+
+--
+
+#.center[9 190 680]
+
+---
+class: middle, center, inverse
+
+# Pour davantage d'informations...
+
+---
+
+Tout débute avec un article de **Richard Ruggles et Henry Brodie** paru dans le volume 42 du *Journal of the American Statistical Association* en 1947. L'article s'intitule:
+
+.center[**An Empirical Approach to Economic Intelligence in World War II**]
+
+--
+
+**_Pas le titre le plus accrocheur en ville..._**
+
+--
+
+Par contre, la lecture de l'article est passionnante. Les mathématiques sont pratiquement absentes de celui-ci mais les auteurs nous entraînent dans l'histoire du développement de leur technique en fonction des problèmes rencontrés et des solutions qui ont été trouvées.
+
+--
+
+Pour celles et ceux intéressés, vous pouvez trouver cet article aux endroits suivants:
+
+- [doi](https://en.wikipedia.org/wiki/Digital_object_identifier): [10.1080/01621459.1947.10501915](https://doi.org/10.1080%2F01621459.1947.10501915)
+- [JSTOR](https://en.wikipedia.org/wiki/JSTOR): [2280189](https://www.jstor.org/stable/2280189)
+
 
 ---
 class: middle, center, inverse
