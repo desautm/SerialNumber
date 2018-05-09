@@ -1,6 +1,5 @@
 ---
 title: "Le problème du char d'assaut allemand"
-subtitle: "ou comment j'ai appris à ne plus m'en faire et à aimer ~~la bombe~~ les numéros de série"
 author: "Marc-André Désautels"
 date: "Octobre 2018"
 output:
@@ -10,23 +9,6 @@ output:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
----
-class: center, middle
-
-## Pour mon sous-titre...
-
---
-
-### merci à...
-
---
-
-### Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb
-
---
-
-### *Docteur Folamour ou : comment j'ai appris à ne plus m'en faire et à aimer la bombe*
-
 ---
 
 ```{r setup, include=FALSE}
@@ -77,14 +59,6 @@ N5 <- function(ech){
   }
 }
 ```
-
-background-image: url(https://upload.wikimedia.org/wikipedia/commons/f/f6/Dr._Strangelove_poster.png)
-
-???
-
-Image credit: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File%3ADr._Strangelove_poster.png)
-
----
 
 # AVERTISSEMENT!
 
@@ -248,6 +222,14 @@ La technique que nous verrons a par contre été utilisée pour estimer bien d'a
 
 ---
 layout: false
+
+### Les numéros de séries
+
+TODO: HYPOTHÈSES SUR LES NUMÉROS DE SÉRIES DES CHARS...
+
+To determine whether this was true, the Allies attempted to estimate the number of tanks being produced. To do this, they used the serial numbers on captured or destroyed tanks. The principal numbers used were gearbox numbers, as these fell in two unbroken sequences. Chassis and engine numbers were also used, though their use was more complicated. Various other components were used to cross-check the analysis. Similar analyses were done on wheels, which were observed to be sequentially numbered (i.e., 1, 2, 3, ..., N)
+
+---
 
 ### Les objets étudiés
 
