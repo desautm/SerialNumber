@@ -22,7 +22,7 @@ class: center, middle, inverse, title-slide
 
 # Le problème du char d’assaut allemand
 ### Marc-André Désautels
-### Octobre 2018
+### Octobre 2018 <br><br> Présentation disponible à <a href="https://bit.ly/amq18" class="uri">https://bit.ly/amq18</a> <br> Code disponible à <a href="https://github.com/desautm/SerialNumber" class="uri">https://github.com/desautm/SerialNumber</a>
 
 ---
 
@@ -192,30 +192,27 @@ La technique que nous verrons a par contre été utilisée pour estimer bien d'a
 ---
 layout: false
 
-### Les objets étudiés
+### Les numéros de séries
 
-La **Economic Warfare Division** et le **British Ministry of Economic Warfare** ont étudiés plusieurs types d'équipements allemands:
+- Les numéros de séries utilisés étaient ceux trouvés sur les chars allemands capturés ou détruits.
 
 --
 
-- Les pneus (de camions et d'avions)
+- Les numéros qui étaient principalement utilisés étaient ceux trouvés sur les boîtes de vitesse, car ceux-ci se retrouvaient à faire partie de deux suites de nombres croissantes.
 
-- **Les chars d'assaut**
+--
 
-- Camions et automobiles
+- Les alliés utilisaient également les numéros se trouvant sur les carosseries et sur les moteurs, mais leur usage était plus complexe.
 
-- Armes à feu
+--
 
-- Munitions
+- D'autres numéros se retrouvant sur d'autres composantes étaient utilisés pour contre-vérifier l'analyse.
 
-- Composantes spéciales
+--
 
-- Bombes
-
-- Fusées
+- Les roues étaient utilisées car elles étaient numérotées de façon séquentielle.
 
 ---
-layout: false
 class: inverse, middle, center
 
 # Les mathématiques... 
@@ -524,9 +521,6 @@ layout: false
 Nous simulons 5 000 échantillons de taille 5 à partir d'une population de taille 500. Nous calculons pour chacun de ces échantillons nos quatre estimés.
 
 
-```
-## Warning: package 'bindrcpp' was built under R version 3.4.4
-```
 
 --
 
@@ -592,6 +586,10 @@ Voici les estimés de la production pour trois mois tels que présentés dans l'
 | Juin 1940 | 169 | 1 000 | 122 |
 | Juin 1941 | 244 | 1 550 | 271 |
 | Août 1942 | 327 | 1 550 | 342 |
+
+--
+
+.center[![Content le monsieur](https://media1.giphy.com/media/ZlqvZn3qYftdu/giphy.gif)]
 
 ---
 class: middle, center, inverse
@@ -816,25 +814,53 @@ class: middle, center, inverse
 
 ---
 
-Tout débute avec un article de **Richard Ruggles et Henry Brodie** paru dans le volume 42 du *Journal of the American Statistical Association* en 1947. L'article s'intitule:
+# Bibliographie
 
-.center[**An Empirical Approach to Economic Intelligence in World War II**]
+&lt;a name=bib-Goodman1952&gt;&lt;/a&gt;[Goodman, L. A.](#cite-Goodman1952)
+(1952). "Serial Number Analysis". In: _Journal of the American
+Statistical Association_ 47.260, pp. 622-634. ISSN: 01621459. URL:
+[http://www.jstor.org/stable/2280780](http://www.jstor.org/stable/2280780).
 
---
+&lt;a name=bib-Goodman1954&gt;&lt;/a&gt;[Goodman, L. A.](#cite-Goodman1954)
+(1954). "Some Practical Techniques in Serial Number Analysis". In:
+_Journal of the American Statistical Association_ 49.265, pp.
+97-112. ISSN: 01621459. URL:
+[http://www.jstor.org/stable/2281038](http://www.jstor.org/stable/2281038).
 
-**_Pas le titre le plus accrocheur en ville..._**
+&lt;a name=bib-Hohle2018&gt;&lt;/a&gt;[Höhle, M. and L. Held](#cite-Hohle2018)
+(2018). "Bayesian Estimation of the Size of a Population".
 
---
+&lt;a name=bib-Roberts1967&gt;&lt;/a&gt;[Roberts, H. V.](#cite-Roberts1967)
+(1967). "Informative Stopping Rules and Inferences about
+Population Size". In: _Journal of the American Statistical
+Association_ 62.319, pp. 763-775. ISSN: 01621459. URL:
+[http://www.jstor.org/stable/2283670](http://www.jstor.org/stable/2283670).
 
-Par contre, la lecture de l'article est passionnante. Les mathématiques sont pratiquement absentes de celui-ci mais les auteurs nous entraînent dans l'histoire du développement de leur technique en fonction des problèmes rencontrés et des solutions qui ont été trouvées.
+---
+# Bibliographie (II)
 
---
+&lt;a name=bib-Ruggles1947&gt;&lt;/a&gt;[Ruggles, R. and H.
+Brodie](#cite-Ruggles1947) (1947). "An Empirical Approach to
+Economic Intelligence in World War II". In: _Journal of the
+American Statistical Association_ 42.237, pp. 72-91. ISSN:
+01621459. URL:
+[http://www.jstor.org/stable/2280189](http://www.jstor.org/stable/2280189).
 
-Pour celles et ceux intéressés, vous pouvez trouver cet article aux endroits suivants:
+&lt;a name=bib-Volz2008&gt;&lt;/a&gt;[Volz, A. G.](#cite-Volz2008) (2008). "A
+Soviet Estimate of German Tank Production". In: _The Journal of
+Slavic Military Studies_ 21.3, pp. 588-590. DOI:
+[10.1080/13518040802313902](https://doi.org/10.1080/13518040802313902).
+eprint: https://doi.org/10.1080/13518040802313902. URL:
+[https://doi.org/10.1080/13518040802313902](https://doi.org/10.1080/13518040802313902).
 
-- [doi](https://en.wikipedia.org/wiki/Digital_object_identifier): [10.1080/01621459.1947.10501915](https://doi.org/10.1080%2F01621459.1947.10501915)
-- [JSTOR](https://en.wikipedia.org/wiki/JSTOR): [2280189](https://www.jstor.org/stable/2280189)
-
+&lt;a name=bib-Johnson&gt;&lt;/a&gt;[W, J. R.](#cite-Johnson) "Estimating the
+Size of a Population". In: _Teaching Statistics_ 16.2, pp. 50-52.
+DOI:
+[10.1111/j.1467-9639.1994.tb00688.x](https://doi.org/10.1111/j.1467-9639.1994.tb00688.x).
+eprint:
+https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1467-9639.1994.tb00688.x.
+URL:
+[https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1467-9639.1994.tb00688.x](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1467-9639.1994.tb00688.x).
 
 ---
 class: middle, center, inverse

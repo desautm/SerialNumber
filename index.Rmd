@@ -1,7 +1,7 @@
 ---
 title: "Le problème du char d'assaut allemand"
 author: "Marc-André Désautels"
-date: "Octobre 2018"
+date: "Octobre 2018 <br><br> Présentation disponible à https://bit.ly/amq18 <br> Code disponible à  https://github.com/desautm/SerialNumber"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -25,6 +25,16 @@ library(stringr)
 library(rtweet)
 library(plotly)
 library(scales)
+library(RefManageR)
+
+source(here::here("helper.R"))
+BibOptions(check.entries = FALSE, 
+           bib.style = "authoryear", 
+           style = "markdown",
+           dashed = TRUE)
+bib <- ReadBib("my_bib.bib")
+NoCite(bib, c("Ruggles1947","Johnson","Goodman1952","Goodman1954","Roberts1967","Volz2008","Hohle2018"))
+
 theme_set(theme_minimal())
 set.seed(39894095)
 
@@ -225,36 +235,25 @@ layout: false
 
 ### Les numéros de séries
 
-TODO: HYPOTHÈSES SUR LES NUMÉROS DE SÉRIES DES CHARS...
-
-To determine whether this was true, the Allies attempted to estimate the number of tanks being produced. To do this, they used the serial numbers on captured or destroyed tanks. The principal numbers used were gearbox numbers, as these fell in two unbroken sequences. Chassis and engine numbers were also used, though their use was more complicated. Various other components were used to cross-check the analysis. Similar analyses were done on wheels, which were observed to be sequentially numbered (i.e., 1, 2, 3, ..., N)
-
----
-
-### Les objets étudiés
-
-La **Economic Warfare Division** et le **British Ministry of Economic Warfare** ont étudiés plusieurs types d'équipements allemands:
+- Les numéros de séries utilisés étaient ceux trouvés sur les chars allemands capturés ou détruits.
 
 --
 
-- Les pneus (de camions et d'avions)
+- Les numéros qui étaient principalement utilisés étaient ceux trouvés sur les boîtes de vitesse, car ceux-ci se retrouvaient à faire partie de deux suites de nombres croissantes.
 
-- **Les chars d'assaut**
+--
 
-- Camions et automobiles
+- Les alliés utilisaient également les numéros se trouvant sur les carosseries et sur les moteurs, mais leur usage était plus complexe.
 
-- Armes à feu
+--
 
-- Munitions
+- D'autres numéros se retrouvant sur d'autres composantes étaient utilisés pour contre-vérifier l'analyse.
 
-- Composantes spéciales
+--
 
-- Bombes
-
-- Fusées
+- Les roues étaient utilisées car elles étaient numérotées de façon séquentielle.
 
 ---
-layout: false
 class: inverse, middle, center
 
 # Les mathématiques... 
@@ -705,6 +704,10 @@ Voici les estimés de la production pour trois mois tels que présentés dans l'
 | Juin 1941 | 244 | 1 550 | 271 |
 | Août 1942 | 327 | 1 550 | 342 |
 
+--
+
+.center[![Content le monsieur](https://media1.giphy.com/media/ZlqvZn3qYftdu/giphy.gif)]
+
 ---
 class: middle, center, inverse
 
@@ -844,8 +847,9 @@ Model3VINs$text <- str_to_lower(Model3VINs$text)
 NHSTA <- Model3VINs %>%
   filter(str_detect(text, "highest vin is (\\d+)") == TRUE) %>%
   mutate(vin_nhsta = as.integer(str_match(text, "highest vin is (\\d+)")[,2])) %>%
+  mutate(n_nhsta = as.integer(str_replace(str_match(text, "registered ([:graph:]*) new")[,2], ",", ""))) %>%
   mutate(date = as_date(created_at)) %>%
-  select(date, vin_nhsta) %>%
+  select(date, n_nhsta, vin_nhsta) %>%
   arrange(date)
 ```
 
@@ -1092,25 +1096,18 @@ class: middle, center, inverse
 
 ---
 
-Tout débute avec un article de **Richard Ruggles et Henry Brodie** paru dans le volume 42 du *Journal of the American Statistical Association* en 1947. L'article s'intitule:
+# Bibliographie
 
-.center[**An Empirical Approach to Economic Intelligence in World War II**]
+```{r, results='asis', echo=FALSE, warning=FALSE}
+print_bib_rmd(bib, start = 1, stop = 4)
+```
 
---
+---
+# Bibliographie (II)
 
-**_Pas le titre le plus accrocheur en ville..._**
-
---
-
-Par contre, la lecture de l'article est passionnante. Les mathématiques sont pratiquement absentes de celui-ci mais les auteurs nous entraînent dans l'histoire du développement de leur technique en fonction des problèmes rencontrés et des solutions qui ont été trouvées.
-
---
-
-Pour celles et ceux intéressés, vous pouvez trouver cet article aux endroits suivants:
-
-- [doi](https://en.wikipedia.org/wiki/Digital_object_identifier): [10.1080/01621459.1947.10501915](https://doi.org/10.1080%2F01621459.1947.10501915)
-- [JSTOR](https://en.wikipedia.org/wiki/JSTOR): [2280189](https://www.jstor.org/stable/2280189)
-
+```{r, results='asis', echo=FALSE, warning=FALSE}
+print_bib_rmd(bib, start = 5, stop = 7)
+```
 
 ---
 class: middle, center, inverse
