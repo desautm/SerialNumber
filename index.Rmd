@@ -694,7 +694,7 @@ ggplot(data = ech1000, aes(x = pop, y = valeur, color = estimateur))+
 ---
 layout: false
 
-Voici les estimés de la production pour trois mois tels que présentés dans l'article de **Ruggles** et **Brodie**.
+Voici les estimés de la production pour trois mois tels que présentés dans l'article de `r Citet(bib, "Ruggles1947")`.
 
 --
 
@@ -713,7 +713,7 @@ class: middle, center, inverse
 
 # Nos données...
 
-TODO: ON FAIT LE CALCUL AVEC LES NOMBRES PIGÉS...
+Utilisons l'estimateur $\hat{N}_4$ pour estimer la taille de la population de laquelle nous avons tiré nos nombres.
 
 ---
 class: middle, center, inverse
@@ -937,7 +937,7 @@ g
 
 ---
 
-Les VINs des usagers, la NHSTA et la production exacte de Tesla.
+Les VINs des usagers, la NHSTA et $N_4$.
 
 ```{r echo=FALSE, fig.align='center', fig.height=8, fig.width=8, , warning = FALSE}
 g <- ggplot()+
@@ -945,14 +945,10 @@ g <- ggplot()+
              alpha = 0.5, 
              size = 2,
              color = "blue")+
-  #geom_line(data = INVITES, mapping = aes(x = date, y = N4), color = "green")+
+  geom_line(data = INVITES, mapping = aes(x = date, y = N4), color = "green", size = 2)+
   #geom_line(data = INVITES, mapping = aes(x = date, y = N5), color = "yellow")+
-  geom_line(data = PRODUCTION, mapping = aes(x = date, y = total_unites), 
-            color = "green", 
-            size = 2)+
-  geom_point(data = PRODUCTION, mapping = aes(x = date, y = total_unites), 
-             color = "black", 
-             size = 3)+
+  #geom_line(data = PRODUCTION, mapping = aes(x = date, y = total_unites), color = "green", size = 2)+
+  #geom_point(data = PRODUCTION, mapping = aes(x = date, y = total_unites), color = "black", size = 3)+
   geom_step(data = NHSTA, mapping = aes(x = date, y = vin_nhsta), color = "red", size = 1)+
   labs(
     x = "Date d'assignation du numéro VIN",
@@ -965,7 +961,7 @@ g
 
 ---
 
-Les VINs des usagers, la NHSTA, la production exacte de Tesla et $N_4$.
+Les VINs des usagers, la NHSTA, $N_4$ et la production exacte de Tesla.
 
 ```{r echo=FALSE, fig.align='center', fig.height=8, fig.width=8, , warning = FALSE}
 g <- ggplot()+
@@ -974,11 +970,11 @@ g <- ggplot()+
              size = 2,
              color = "blue")+
   geom_line(data = INVITES, mapping = aes(x = date, y = N4), 
-            color = "yellow",
+            color = "green",
             size = 2)+
   #geom_line(data = INVITES, mapping = aes(x = date, y = N5), color = "yellow")+
   geom_line(data = PRODUCTION, mapping = aes(x = date, y = total_unites), 
-            color = "green", 
+            color = "yellow", 
             size = 2)+
   geom_point(data = PRODUCTION, mapping = aes(x = date, y = total_unites), 
              color = "black", 
@@ -994,34 +990,14 @@ g
 ```
 
 ---
+class: middle, center, inverse
 
-Les VINs des usagers, la NHSTA, la production exacte de Tesla et $N_5$.
+# Hier
 
-```{r echo=FALSE, fig.align='center', fig.height=8, fig.width=8, , warning = FALSE}
-g <- ggplot()+
-  geom_point(data = INVITES, mapping = aes(x = date, y = vin_invites), 
-             alpha = 0.5, 
-             size = 2,
-             color = "blue")+
-  geom_line(data = INVITES, mapping = aes(x = date, y = N5), 
-            color = "yellow",
-            size = 2)+
-  #geom_line(data = INVITES, mapping = aes(x = date, y = N5), color = "yellow")+
-  geom_line(data = PRODUCTION, mapping = aes(x = date, y = total_unites), 
-            color = "green", 
-            size = 2)+
-  geom_point(data = PRODUCTION, mapping = aes(x = date, y = total_unites), 
-             color = "black", 
-             size = 3)+
-  geom_step(data = NHSTA, mapping = aes(x = date, y = vin_nhsta), color = "red", size = 1)+
-  labs(
-    x = "Date d'assignation du numéro VIN",
-    y = "Numéro VIN"
-  )+
-  scale_x_date(breaks = date_breaks("1 month"), limits = c(as.Date("2017-11-01"),NA))
-#ggplotly(g)
-g
-```
+---
+class: middle, center, inverse
+
+# Commodore 64
 
 ---
 
@@ -1041,48 +1017,39 @@ Plusieurs personnes mettent en doute les chiffres de 17 à 25 millions. Nous all
 
 --
 
-Basé sur [How many Commodore 64 computers were really sold?](https://www.pagetable.com/?p=547)
+Basé sur [How many Commodore 64 computers were really sold?](https://www.pagetable.com/?p=547). L'auteur a utilisé une banque de données construites par des utilisateurs et contenant les numéros de série de leur Commodore 64: [C64 Serial Registry](https://c64preservation.com/index.php/dp.php?pg=registry).
 
-Pour ce faire, nous allons utiliser la base de données du site [C64 Preservation](https://c64preservation.com/dp.php?pg=registry). Ce site héberge une base de données contenant les numéros de séries de certains Commodore 64.
-
---
-
-```{r echo = FALSE}
-commodore64 <- tibble(
-  année = c(rep(1982, 5), rep(1983, 3), rep(1984, 3), 1986, 1987, 1988, 1989, 1990),
-  série = c("326298", "326298/A", "326298/B", "326298/C", "KU-14194HB", "250407/A", "250407/B","250407/C", "250425/-", "250425/A", "250425/B", "250466", "250469/3", "250469/4", "250469/A", "250469/B"),
-  n = c(4, 21, 6, 6, 16, 7, 50, 18, 48, 9, 4, 18, 14, 29, 16, 17),
-  maximum = c(NA, 325512, NA, NA, NA, 208282, 1152644, 1218502, 1273699, 500165, 536345, 438001, 444384, 1124586, 1994012, 2242493)
-)
-DT::datatable(commodore64,
-              fillContainer = FALSE, options = list(pageLength = 6), rownames = FALSE)
-```
-
----
-
-Nous allons débuter par calculer une estimation du nombre maximal de Commodore 64 produits pour les lignes où nous avons un maximum. Nous utilisons l'estimateur $\hat{N}_4$.
-
-$$\hat{N}_4=\left( \frac{n+1}{n}\right) X_{(n)}-1$$
+Voici les résultats:
 
 --
 
-```{r echo=FALSE}
-commodore64 <- commodore64 %>%
-  mutate(total = round((n+1)/n*maximum-1))
+<img src="https://www.pagetable.com/docs/c64_sales/allboards.png" width = "700">
 
-DT::datatable(commodore64, options = list(pageLength = 6), rownames = FALSE)
-```
+--
+
+#.center[12 681 839]
+
+---
+class: center, middle, inverse
+
+# iPhones
 
 ---
 
-# Des iPhones...
+## Pourquoi les iPhones sont comme les chars allemands
 
-### Pourquoi les iPhones sont comme les chars allemands
+L'**iPhone** (EDGE), est un modèle de la première génération d'**iPhone**, de la société Apple.
 
-Dans un article daté du 8 octobre 2008: [Why iPhones are just like German tanks](https://www.theguardian.com/technology/blog/2008/oct/08/iphone.apple).
+Annoncé le 9 janvier 2007. Il a été commercialisé à partir du 29 juin 2007 aux États-Unis, à partir de novembre 2007 aux Royaume-Uni et en France et en juillet 2008 en Suisse.
 
-* Le 11 juillet 2008, un utilisateur de produits Apple a demandé aux propriétaires leur numéro de série IMEI. 
-* Le IMEI (*The International Mobile Equipment Identity*) est un code unqiue de 15 chiffres assigné à tous les téléphones cellulaires
+.center[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/IPhone_1st_Gen.svg/209px-IPhone_1st_Gen.svg.png" height="300">]
+
+---
+
+Dans un article daté du 8 octobre 2008: [Why iPhones are just like German tanks](https://www.theguardian.com/technology/blog/2008/oct/08/iphone.apple):
+
+* Le 11 juillet 2008, un utilisateur de produits Apple a demandé aux propriétaires leur numéro de série IMEI, sur leur iPhone. 
+* Le IMEI (*The International Mobile Equipment Identity*) est un code unique de 15 chiffres assigné à tous les téléphones cellulaires.
 * Après deux mois, les résultats ont été publiés sur internet et en utilisant les techniques vue précédemment, l'utilisateur a calculé combien de iPhones ont été construits cette année-là.
 
 --

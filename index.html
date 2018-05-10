@@ -6,15 +6,6 @@
     <meta name="author" content="Marc-André Désautels" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
-    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
-    <script src="libs/jquery/jquery.min.js"></script>
-    <link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
-    <script src="libs/datatables-binding/datatables.js"></script>
-    <link href="libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
-    <link href="libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
-    <script src="libs/dt-core/js/jquery.dataTables.min.js"></script>
-    <link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
-    <script src="libs/crosstalk/js/crosstalk.min.js"></script>
   </head>
   <body>
     <textarea id="source">
@@ -577,7 +568,7 @@ Nous simulons des populations de tailles 10 à 1 000. Pour chacune d'entre elles
 ---
 layout: false
 
-Voici les estimés de la production pour trois mois tels que présentés dans l'article de **Ruggles** et **Brodie**.
+Voici les estimés de la production pour trois mois tels que présentés dans l'article de [Ruggles and Brodie (1947)](http://www.jstor.org/stable/2280189).
 
 --
 
@@ -596,7 +587,7 @@ class: middle, center, inverse
 
 # Nos données...
 
-TODO: ON FAIT LE CALCUL AVEC LES NOMBRES PIGÉS...
+Utilisons l'estimateur `\(\hat{N}_4\)` pour estimer la taille de la population de laquelle nous avons tiré nos nombres.
 
 ---
 class: middle, center, inverse
@@ -737,21 +728,25 @@ Les VINs des usagers et la NHSTA.
 
 ---
 
-Les VINs des usagers, la NHSTA et la production exacte de Tesla.
+Les VINs des usagers, la NHSTA et `\(N_4\)`.
 
 &lt;img src="index_files/figure-html/unnamed-chunk-19-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
-Les VINs des usagers, la NHSTA, la production exacte de Tesla et `\(N_4\)`.
+Les VINs des usagers, la NHSTA, `\(N_4\)` et la production exacte de Tesla.
 
 &lt;img src="index_files/figure-html/unnamed-chunk-20-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
+class: middle, center, inverse
 
-Les VINs des usagers, la NHSTA, la production exacte de Tesla et `\(N_5\)`.
+# Hier
 
-&lt;img src="index_files/figure-html/unnamed-chunk-21-1.png" style="display: block; margin: auto;" /&gt;
+---
+class: middle, center, inverse
+
+# Commodore 64
 
 ---
 
@@ -771,36 +766,39 @@ Plusieurs personnes mettent en doute les chiffres de 17 à 25 millions. Nous all
 
 --
 
-Basé sur [How many Commodore 64 computers were really sold?](https://www.pagetable.com/?p=547)
+Basé sur [How many Commodore 64 computers were really sold?](https://www.pagetable.com/?p=547). L'auteur a utilisé une banque de données construites par des utilisateurs et contenant les numéros de série de leur Commodore 64: [C64 Serial Registry](https://c64preservation.com/index.php/dp.php?pg=registry).
 
-Pour ce faire, nous allons utiliser la base de données du site [C64 Preservation](https://c64preservation.com/dp.php?pg=registry). Ce site héberge une base de données contenant les numéros de séries de certains Commodore 64.
-
---
-
-<div id="htmlwidget-a8366da332a47f23750e" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a8366da332a47f23750e">{"x":{"filter":"none","fillContainer":false,"data":[[1982,1982,1982,1982,1982,1983,1983,1983,1984,1984,1984,1986,1987,1988,1989,1990],["326298","326298/A","326298/B","326298/C","KU-14194HB","250407/A","250407/B","250407/C","250425/-","250425/A","250425/B","250466","250469/3","250469/4","250469/A","250469/B"],[4,21,6,6,16,7,50,18,48,9,4,18,14,29,16,17],[null,325512,null,null,null,208282,1152644,1218502,1273699,500165,536345,438001,444384,1124586,1994012,2242493]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>année<\/th>\n      <th>série<\/th>\n      <th>n<\/th>\n      <th>maximum<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"columnDefs":[{"className":"dt-right","targets":[0,2,3]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
-
----
-
-Nous allons débuter par calculer une estimation du nombre maximal de Commodore 64 produits pour les lignes où nous avons un maximum. Nous utilisons l'estimateur `\(\hat{N}_4\)`.
-
-`$$\hat{N}_4=\left( \frac{n+1}{n}\right) X_{(n)}-1$$`
+Voici les résultats:
 
 --
 
-<div id="htmlwidget-87be9ec7aba9c79ad727" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-87be9ec7aba9c79ad727">{"x":{"filter":"none","data":[[1982,1982,1982,1982,1982,1983,1983,1983,1984,1984,1984,1986,1987,1988,1989,1990],["326298","326298/A","326298/B","326298/C","KU-14194HB","250407/A","250407/B","250407/C","250425/-","250425/A","250425/B","250466","250469/3","250469/4","250469/A","250469/B"],[4,21,6,6,16,7,50,18,48,9,4,18,14,29,16,17],[null,325512,null,null,null,208282,1152644,1218502,1273699,500165,536345,438001,444384,1124586,1994012,2242493],[null,341012,null,null,null,238036,1175696,1286196,1300233,555738,670430,462333,476125,1163364,2118637,2374403]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>année<\/th>\n      <th>série<\/th>\n      <th>n<\/th>\n      <th>maximum<\/th>\n      <th>total<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"columnDefs":[{"className":"dt-right","targets":[0,2,3,4]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+&lt;img src="https://www.pagetable.com/docs/c64_sales/allboards.png" width = "700"&gt;
+
+--
+
+#.center[12 681 839]
+
+---
+class: center, middle, inverse
+
+# iPhones
 
 ---
 
-# Des iPhones...
+## Pourquoi les iPhones sont comme les chars allemands
 
-### Pourquoi les iPhones sont comme les chars allemands
+L'**iPhone** (EDGE), est un modèle de la première génération d'**iPhone**, de la société Apple.
 
-Dans un article daté du 8 octobre 2008: [Why iPhones are just like German tanks](https://www.theguardian.com/technology/blog/2008/oct/08/iphone.apple).
+Annoncé le 9 janvier 2007. Il a été commercialisé à partir du 29 juin 2007 aux États-Unis, à partir de novembre 2007 aux Royaume-Uni et en France et en juillet 2008 en Suisse.
 
-* Le 11 juillet 2008, un utilisateur de produits Apple a demandé aux propriétaires leur numéro de série IMEI. 
-* Le IMEI (*The International Mobile Equipment Identity*) est un code unqiue de 15 chiffres assigné à tous les téléphones cellulaires
+.center[&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/IPhone_1st_Gen.svg/209px-IPhone_1st_Gen.svg.png" height="300"&gt;]
+
+---
+
+Dans un article daté du 8 octobre 2008: [Why iPhones are just like German tanks](https://www.theguardian.com/technology/blog/2008/oct/08/iphone.apple):
+
+* Le 11 juillet 2008, un utilisateur de produits Apple a demandé aux propriétaires leur numéro de série IMEI, sur leur iPhone. 
+* Le IMEI (*The International Mobile Equipment Identity*) est un code unique de 15 chiffres assigné à tous les téléphones cellulaires.
 * Après deux mois, les résultats ont été publiés sur internet et en utilisant les techniques vue précédemment, l'utilisateur a calculé combien de iPhones ont été construits cette année-là.
 
 --
@@ -816,9 +814,10 @@ class: middle, center, inverse
 
 # Bibliographie
 
-&lt;a name=bib-Goodman1952&gt;&lt;/a&gt;[Goodman, L. A.](#cite-Goodman1952)
-(1952). "Serial Number Analysis". In: _Journal of the American
-Statistical Association_ 47.260, pp. 622-634. ISSN: 01621459. URL:
+&lt;a name=bib-Goodman1952&gt;&lt;/a&gt;[Serial Number
+Analysis](#cite-Goodman1952) (1952). "Serial Number Analysis". In:
+_Journal of the American Statistical Association_ 47.260, pp.
+622-634. ISSN: 01621459. URL:
 [http://www.jstor.org/stable/2280780](http://www.jstor.org/stable/2280780).
 
 &lt;a name=bib-Goodman1954&gt;&lt;/a&gt;[Goodman, L. A.](#cite-Goodman1954)
