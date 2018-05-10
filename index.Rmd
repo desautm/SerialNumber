@@ -822,7 +822,7 @@ cleanalldata <- alldata %>%
   mutate_at(int, funs(as.integer))
 cleanproddata <- proddata %>%
   mutate_at("Date", funs(dmy)) %>%
-  mutate_at("Total units", funs(as.integer))
+  mutate_at("Total units_1", funs(as.integer))
 
 INVITES <- cleanalldata %>%
   filter(!is.na(`VIN (clean version x=5)`) & !is.na(`VIN assignment date`)) %>%
@@ -837,8 +837,8 @@ for (i in seq(length(n4))){
 INVITES <- as.tibble(cbind(INVITES, tibble(N4 = n4, N5 = n5)))
 
 PRODUCTION <- cleanproddata %>%
-  filter(!is.na(`Date`) & !is.na(`Total units`)) %>%
-  rename(date = `Date`, total_unites = `Total units`) %>%
+  filter(!is.na(`Date`) & !is.na(`Total units_1`)) %>%
+  rename(date = `Date`, total_unites = `Total units_1`) %>%
   arrange(date)
 
 Model3VINs <- get_timeline("Model3VINs", n = 3200)
@@ -992,7 +992,7 @@ g
 ---
 class: middle, center, inverse
 
-# Hier
+# Hier...
 
 ---
 class: middle, center, inverse
