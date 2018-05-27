@@ -818,7 +818,7 @@ time <- c("Reservation time")
 int <- c("VIN (clean version x=5)")
 cleanalldata <- alldata %>%
   mutate_at(date, funs(dmy)) %>%
-  mutate_at(time, funs(hm)) %>%
+  #mutate_at(time, funs(hm)) %>%
   mutate_at(int, funs(as.integer))
 cleanproddata <- proddata %>%
   mutate_at("Date", funs(dmy)) %>%
