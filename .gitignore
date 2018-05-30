@@ -3,3 +3,4 @@
 .RData
 .Ruserdata
 create_token.R
+.httr-oauth
