@@ -804,22 +804,25 @@ data <- tesla %>%
   gs_read(ws = "All Entries")
 alldata <- data[3:nrow(data),]
 colnames(alldata) <- data[2,]
+colnames(alldata)[6] <- "Configuration date"
 proddata <- tesla %>%
   gs_read(ws = "Production")
 
-date <- c("Reservation date",
-          "Invite date or access date to the Configurator",
-          "Configuration date",
-          "VIN assignment date",
-          "Scheduled delivery date",
-          "Last update",
-          "Calculated delivery date")
+# date <- c("Reservation date",
+#           "Invite date or access date to the Configurator",
+#           "Configuration date",
+#           "VIN assignment date",
+#           "Scheduled delivery date",
+#           "Last update",
+#           "Calculated delivery date")
+date <- c("VIN assignment date")
+
 time <- c("Reservation time")
 int <- c("VIN (clean version x=5)")
 cleanalldata <- alldata %>%
-  mutate_at(date, funs(dmy)) %>%
+  mutate_at(date, funs(dmy)) #%>%
   #mutate_at(time, funs(hm)) %>%
-  mutate_at(int, funs(as.integer))
+  #mutate_at(int, funs(as.integer))
 cleanproddata <- proddata %>%
   mutate_at("Date", funs(dmy)) %>%
   mutate_at("Total units_1", funs(as.integer))
@@ -828,6 +831,7 @@ INVITES <- cleanalldata %>%
   filter(!is.na(`VIN (clean version x=5)`) & !is.na(`VIN assignment date`)) %>%
   rename(vin_invites = `VIN (clean version x=5)`, date = `VIN assignment date`) %>%
   arrange(date)
+INVITES$vin_invites <- as.numeric(gsub(",","",INVITES$vin_invites))
 n4 <- vector(mode = "double", length = nrow(INVITES))
 n5 <- vector(mode = "double", length = nrow(INVITES))
 for (i in seq(length(n4))){
