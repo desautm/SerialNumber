@@ -805,8 +805,8 @@ data <- tesla %>%
 alldata <- data[3:nrow(data),]
 colnames(alldata) <- data[2,]
 colnames(alldata)[6] <- "Configuration date"
-proddata <- tesla %>%
-  gs_read(ws = "Production")
+# proddata <- tesla %>%
+#   gs_read(ws = "Production")
 
 # date <- c("Reservation date",
 #           "Invite date or access date to the Configurator",
@@ -823,9 +823,12 @@ cleanalldata <- alldata %>%
   mutate_at(date, funs(dmy)) #%>%
   #mutate_at(time, funs(hm)) %>%
   #mutate_at(int, funs(as.integer))
-cleanproddata <- proddata %>%
-  mutate_at("Date", funs(dmy)) %>%
-  mutate_at("Total units_1", funs(as.integer))
+# cleanproddata <- proddata %>%
+#   mutate_at("Date", funs(dmy)) %>%
+#   mutate_at("Total units_1", funs(as.integer))
+
+date <- as.Date(c('2018-03-24','2018-03-31','2018-04-07','2018-04-14','2018-04-16','2018-06-23','2018-06-30'))
+total <- c(10431,12451,14521,16771,17201,35998,41029)
 
 INVITES <- cleanalldata %>%
   filter(!is.na(`VIN (clean version x=5)`) & !is.na(`VIN assignment date`)) %>%
@@ -840,10 +843,11 @@ for (i in seq(length(n4))){
 }
 INVITES <- as.tibble(cbind(INVITES, tibble(N4 = n4, N5 = n5)))
 
-PRODUCTION <- cleanproddata %>%
-  filter(!is.na(`Date`) & !is.na(`Total units_1`)) %>%
-  rename(date = `Date`, total_unites = `Total units_1`) %>%
-  arrange(date)
+# PRODUCTION <- cleanproddata %>%
+#   filter(!is.na(`Date`) & !is.na(`Total units_1`)) %>%
+#   rename(date = `Date`, total_unites = `Total units_1`) %>%
+#   arrange(date)
+PRODUCTION <- tibble(Date = date, total_unites = total)
 
 Model3VINs <- get_timeline("Model3VINs", n = 3200)
 Model3VINs$text <- str_to_lower(Model3VINs$text)
