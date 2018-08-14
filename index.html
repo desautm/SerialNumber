@@ -840,8 +840,9 @@ _Journal of the American Statistical Association_ 49.265, pp.
 97-112. ISSN: 01621459. URL:
 [http://www.jstor.org/stable/2281038](http://www.jstor.org/stable/2281038).
 
-&lt;a name=bib-Hohle2018&gt;&lt;/a&gt;[Höhle, M. and L. Held](#cite-Hohle2018)
-(2018). "Bayesian Estimation of the Size of a Population".
+&lt;a name=bib-Hohle2018&gt;&lt;/a&gt;[HÃ¶hle, M. and L.
+Held](#cite-Hohle2018) (2018). "Bayesian Estimation of the Size of
+a Population".
 
 &lt;a name=bib-Roberts1967&gt;&lt;/a&gt;[Roberts, H. V.](#cite-Roberts1967)
 (1967). "Informative Stopping Rules and Inferences about
@@ -903,12 +904,23 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   d.head.appendChild(s);
 })();</script>
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
   }
-});
+})();
 </script>
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
