@@ -804,7 +804,7 @@ data <- tesla %>%
   gs_read(ws = "All Entries")
 alldata <- data[3:nrow(data),]
 colnames(alldata) <- data[2,]
-colnames(alldata)[6] <- "Configuration date"
+colnames(alldata)[11] <- "VIN assignment date"
 # proddata <- tesla %>%
 #   gs_read(ws = "Production")
 
@@ -816,6 +816,7 @@ colnames(alldata)[6] <- "Configuration date"
 #           "Last update",
 #           "Calculated delivery date")
 date <- c("VIN assignment date")
+# date <- c("VIN date")
 
 time <- c("Reservation time")
 int <- c("VIN (clean version x=5)")
@@ -925,7 +926,7 @@ g <- ggplot()+
     y = "Numéro VIN"
   )+
   scale_x_date(breaks = date_breaks("1 month"), limits = c(as.Date("2017-11-01"),NA))
-#ggplotly(g)
+# ggplotly(g)
 g
 ```
 
