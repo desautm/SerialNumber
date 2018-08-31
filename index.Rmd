@@ -821,7 +821,8 @@ date <- c("VIN assignment date")
 time <- c("Reservation time")
 int <- c("VIN (clean version x=5)")
 cleanalldata <- alldata %>%
-  mutate_at(date, funs(dmy)) #%>%
+  mutate_at(date, funs(dmy)) %>%
+  mutate_at("Trim level", funs(if_else(is.na(str_match(`Trim level`, "AWD")),"RWD", "AWD")))
   #mutate_at(time, funs(hm)) %>%
   #mutate_at(int, funs(as.integer))
 # cleanproddata <- proddata %>%
