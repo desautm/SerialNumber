@@ -829,8 +829,8 @@ cleanalldata <- alldata %>%
 #   mutate_at("Date", funs(dmy)) %>%
 #   mutate_at("Total units_1", funs(as.integer))
 
-date <- as.Date(c('2018-03-24','2018-03-31','2018-04-07','2018-04-14','2018-04-16','2018-06-23','2018-06-30'))
-total <- c(10431,12451,14521,16771,17201,35998,41029)
+date <- as.Date(c('2018-03-24','2018-03-31','2018-04-07','2018-04-14','2018-04-16','2018-06-23','2018-06-30','2018-09-30'))
+total <- c(10431,12451,14521,16771,17201,35998,41029,94268)
 
 INVITES <- cleanalldata %>%
   filter(!is.na(`VIN (clean version x=5)`) & !is.na(`VIN assignment date`)) %>%
