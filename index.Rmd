@@ -143,17 +143,27 @@ layout: true
 
 --
 
-- .large[L'ensemble des activités de collecte, de traitement et de diffusion de l'information utile aux acteurs économiques, en vue de son exploitation.]
+- L'ensemble des activités de collecte, de traitement et de diffusion de l'information utile aux acteurs économiques, en vue de son exploitation.
 
-- .large[Utilisée avant chaque attaque.]
+--
 
-- .large[Portait sur des produits de guerre allemands indispensables.]
+- Utilisée avant chaque attaque.
 
-- .large[Totalement inadéquate au début de la guerre.]
+--
 
-- .large[Données basées sur des informations d'avant-guerre.]
+- Portait sur des produits de guerre allemands indispensables.
 
-- .large[Données obtenues totalement contradictoires.]
+--
+
+- Totalement inadéquate au début de la guerre.
+
+--
+
+- Données basées sur des informations d'avant-guerre.
+
+--
+
+- Données obtenues totalement contradictoires.
 
 ???
 
