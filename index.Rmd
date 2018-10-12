@@ -145,6 +145,18 @@ layout: true
 
 - L'ensemble des activités de collecte, de traitement et de diffusion de l'information utile aux acteurs économiques, en vue de son exploitation.
 
+???
+
+L’intelligence économique est l'ensemble des activités coordonnées de collecte, de traitement et de diffusion de l'information utile aux acteurs économiques, en vue de son exploitation.
+
+Derrière chaque attaque en Europe se cachait des recherches exhaustives portant sur certains produits guerriers allemands indispensables;
+
+Durant les premières phases de la guerre, l'intelligence économique alliée se montra inadéquate pour les nombreux besoins qu'on demandait d'elle.
+
+Les estimés étaient basés sur des données d'avant la guerre ou alors extrapolées à partir de données américaines ou britanniques.
+
+Les données obtenues par les services secrets donnaient d'énormes masses de données contradictoires.
+
 --
 
 - Utilisée avant chaque attaque.
@@ -164,18 +176,6 @@ layout: true
 --
 
 - Données obtenues totalement contradictoires.
-
-???
-
-L’intelligence économique est l'ensemble des activités coordonnées de collecte, de traitement et de diffusion de l'information utile aux acteurs économiques, en vue de son exploitation.
-
-Derrière chaque attaque en Europe se cachait des recherches exhaustives portant sur certains produits guerriers allemands indispensables;
-
-Durant les premières phases de la guerre, l'intelligence économique alliée se montra inadéquate pour les nombreux besoins qu'on demandait d'elle.
-
-Les estimés étaient basés sur des données d'avant la guerre ou alors extrapolées à partir de données américaines ou britanniques.
-
-Les données obtenues par les services secrets donnaient d'énormes masses de données contradictoires.
 
 --
 
